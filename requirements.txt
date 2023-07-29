@@ -1,0 +1,6 @@
+pyttsx3==2.90
+SpeechRecognition==3.8.1
+webbrowser==0.5.1
+bardapi==0.1
+nltk==3.6.5
+pycaw==20181226.1
