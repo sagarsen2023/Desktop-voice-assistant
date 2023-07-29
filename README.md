@@ -1,4 +1,4 @@
-# Voice Assistant with Text Summarization
+# Voice Desktop Assistant: Version 1.0
 
 This is a voice assistant program that uses the Bard API to fetch detailed answers to your queries and then provides a summary of the answer using text summarization. The program can open websites, play music, and answer questions using voice commands.
 
