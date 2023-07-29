@@ -1,29 +1,3 @@
-# =============================================== Here is what my idea ======================================================================                                -> Status
-# 1. Opening and closing apps                                             -> Implemented
-# 2. Genarate text like alexa, google assistant, siri does.               -> Implemented
-# 3. Play Pause musics                                                    -> Implemented
-# 4. PDF operations                                                       -> Under Development
-# 5. Language translator                                                  -> Under Development
-# 6. Add gui using python Tkinter                                         -> Under Development
-# 7. Add this code to google chrome extension                             -> Not possible because chrome extension uses javascript
-# 8. Create to-do lists                                                   -> Under Development
-# 9. Opening and closing the websites                                     -> Implemented 
-# 10. Deploy it as a desktop application (1st priority)                   -> Development not started
-# 11. Deplaoy it as a mac, linux and web application (2nd priority)       -> Development not started
-
-
-# ================================================ Improvements to reduce the line of code (LOC): ====================================================
-
-#               Problems                                                                   Improvements
-# 1. Remove extra elif statements.                                                          -> Solved
-# 2. Websites open with specific commands. Have to improve it.                              -> Solved
-# 3. Speak the summarised text genarated by bard api and print the detailed text.           -> Solved 
-# 4. Decreasing latency by sing the parallel programming concept.                           -> Solved
-# 5. Improve the speed and tone of the voice.                                               -> Possible but don't want to do.
-# 6. After generating an output whwn I say alexa, it wont respond correctly.                -> Solved
-# 7. Volume up and down while playing musics and others in Windows, Mac, linux              -> Due to lack of resources, temporary solution is possible so postponed                               
-
-# ================================================= Development process ======================================================================
 # importing the libraries
 import pyttsx3
 import datetime
@@ -39,8 +13,8 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
 
 def generate_summary(text, num_sentences=3):
-    sentences = sent_tokenize(text) # Tokenize the text into sentences
-    # Calculate the term frequency of each word in the text
+    sentences = sent_tokenize(text) # Tokenizing the text into sentences
+    # Calculating the term frequency of each word in the text
     word_frequencies = {}
     for sentence in sentences:
         tokens = word_tokenize(sentence)
@@ -52,7 +26,7 @@ def generate_summary(text, num_sentences=3):
                 else:
                     word_frequencies[token] += 1
 
-    # Calculate the sentence scores based on word frequencies
+    # Calculating the sentence scores based on word frequencies
     sentence_scores = {}
     for sentence in sentences:
         sentence_score = 0
@@ -62,14 +36,14 @@ def generate_summary(text, num_sentences=3):
             if token in word_frequencies:
                 sentence_score += word_frequencies[token]
         sentence_scores[sentence] = sentence_score
-    # Sort the sentences by their scores
+    # Sorting the sentences by their scores
     sorted_sentences = sorted(sentence_scores.items(), key=lambda x: x[1], reverse=True)
-    # Generate the summary by selecting the top sentences
+    # Generating the summary by selecting the top sentences
     summary = ""
     num_sentences = min(len(sorted_sentences), num_sentences)  # Choose the specified number of sentences as the summary
     for i in range(num_sentences):
         summary += sorted_sentences[i][0] + " "
-    # Remove asterisks and other unwanted characters
+    # Removing asterisks and other unwanted characters
     summary = re.sub(r'\*+', '', summary)
     summary = summary.strip()
     return summary
@@ -92,8 +66,7 @@ voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
 # The Bard API
-# os.environ["_BARD_API_KEY"] = "YOUR_BARD_API_KEY"  #Enter your BARD API key here. Otherwise your code will not work
-os.environ["_BARD_API_KEY"] = "YwhFjCeOnbQYH6r0ncSEYRyp595ZlGHPgyIDj1xGlaU5lQS7M-y3l3m3Biy6cbIg6X2j1Q."
+# os.environ["_BARD_API_KEY"] = "YOUR_BARD_API_KEY"  #Enter your BARD API key here. Otherwise, your code will not work
 # Code for the voice output
 def voice_output(source):
     engine.say(source)
