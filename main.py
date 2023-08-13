@@ -133,7 +133,7 @@ def callByname():
             webbrowser.open("https://www.flipkart.com/")
 
         elif re.search("play some musics|play some music|play song|play some songs|play music", query):
-            musicDirectory = "D:\\Music"
+            musicDirectory = "ENTER_YOUR_MUSIC_PATH_HERE"
             songs = os.listdir(musicDirectory)
             n = len(songs)
             x = random.randint(0, n-1)
