@@ -23,7 +23,7 @@ This is a voice assistant program that uses the Bard API to fetch detailed answe
 
 1. Clone the repository to your local machine.
 2. Install the required packages using `pip install -r requirements.txt`.
-3. Obtain a BARD API key from the [BARD website](https://bardapi.com/) and set it as an environment variable with the name `_BARD_API_KEY`.
+3. Obtain a BARD API key from the [BARD website](https://gemini.google.com/app) and set it as an environment variable with the name `_BARD_API_KEY`.
 4. Adjust the paths for the music directory according to your local setup.
 
 ## Usage
